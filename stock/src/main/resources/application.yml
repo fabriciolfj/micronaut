@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: stock
+  server:
+    port: 8080
+hello:
+  config:
+    greeting:
+      br: "Ola"
+      en: "Hello"
+  controller:
+    path: /hello
+msg:
+  hello: Hello world
