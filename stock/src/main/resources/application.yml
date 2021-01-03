@@ -3,6 +3,20 @@ micronaut:
     name: stock
   server:
     port: 8080
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      redoc:
+        paths: classpath:META-INF/swagger/views/redoc
+        mapping: /redoc/**
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
 hello:
   config:
     greeting:
@@ -12,3 +26,16 @@ hello:
     path: /hello
 msg:
   hello: Hello world
+
+# JSON settings
+jackson:
+  property-naming-strategy: SNAKE_CASE
+  generator:
+    writeNumbersAsStrings: true
+    writeBigDecimalAsPlain: true
+  deserialization:
+    failOnUnknownProperties: false
+  serialization:
+    writeDatesAsTimestamps: false
+    writeDatesWithZoneId: true
+    writeDateTimestampsAsNanoseconds: false
