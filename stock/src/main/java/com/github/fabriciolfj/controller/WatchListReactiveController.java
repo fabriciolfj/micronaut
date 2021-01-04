@@ -9,6 +9,8 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Put;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -18,6 +20,7 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 
 @Slf4j
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("/account/watchlist-reactive")
 public class WatchListReactiveController {
 

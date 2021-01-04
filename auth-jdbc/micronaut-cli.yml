@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.fabriciolfj.github
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, data, data-jpa, flyway, h2, http-client, java, java-application, jdbc-hikari, junit, logback, maven, netty-server, readme, security-annotations, security-jwt, shade, yaml]
