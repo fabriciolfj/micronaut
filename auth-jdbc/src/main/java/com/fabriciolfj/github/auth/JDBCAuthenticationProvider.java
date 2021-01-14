@@ -19,7 +19,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Singleton;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Singleton
@@ -39,7 +42,15 @@ public class JDBCAuthenticationProvider implements AuthenticationProvider {
                 LOG.info("Found user: {}", userEntity.get().getEmail());
                 final String secret = (String) authenticationRequest.getSecret();
                 if (userEntity.get().getPassword().equals(secret)) {
-                    emitter.onNext(new UserDetails(identity, new ArrayList<>()));
+                    final HashMap<String, Object> attibutes = new HashMap<>();
+                    attibutes.put("language", "en");
+                    attibutes.put("hair_color", "blue");
+
+                    final UserDetails userDetails = new UserDetails(identity,
+                            Collections.singletonList("ROLE_USER"),
+                            attibutes);
+
+                    emitter.onNext(userDetails);
                     emitter.onComplete();
                     return;
                 }

@@ -1,6 +1,6 @@
 package com.github.fabriciolfj.jwt;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
+/*import edu.umd.cs.findbugs.annotations.Nullable;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.security.authentication.AuthenticationException;
 import io.micronaut.security.authentication.AuthenticationFailed;
@@ -36,4 +36,4 @@ public class AuthenticationProviderUserPassword implements AuthenticationProvide
             emitter.onError(new AuthenticationException(new AuthenticationFailed("Wrong username or password!")));
         }, BackpressureStrategy.ERROR);
     }
-}
+}*/

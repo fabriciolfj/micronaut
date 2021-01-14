@@ -7,12 +7,12 @@ import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Status;
-import io.micronaut.security.annotation.Secured;
-import io.micronaut.security.rules.SecurityRule;
+//import io.micronaut.security.annotation.Secured;
+//import io.micronaut.security.rules.SecurityRule;
 
 import javax.inject.Inject;
 
-@Secured(SecurityRule.IS_ANONYMOUS)
+//@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("${hello.controller.path:/hello}")
 public class HelloController {
 

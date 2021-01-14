@@ -25,6 +25,34 @@ micronaut:
           secret:
             generator:
               secret: changeThisSecretToALongSecureString
+
+flyway:
+  datasources:
+    default:
+      enabled: true
+      clean-schema: false
+      url: jdbc:postgresql://127.0.0.1:5432/postgres
+      username: root
+      password: root
+      schemas: mn
+      default-schema: mn
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+    schema-generate: NONE
+    dialect: POSTGRES
+
+jpa:
+  default:
+    entity-scan:
+      - "com.github.fabriciolfj.persistence"
+    properties:
+      hibernate:
+        show_sql: false
+
 hello:
   config:
     greeting:
