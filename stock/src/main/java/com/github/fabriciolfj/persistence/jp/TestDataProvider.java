@@ -34,7 +34,7 @@ public class TestDataProvider {
                     .forEach(repository::save);
         }
 
-        if (quotesRepository.findAll().isEmpty()) {
+        //if (quotesRepository.findAll().isEmpty()) {
             repository.findAll().forEach(symbol -> {
                 var quote = new QuoteEntity();
                 quote.setSymbol(symbol);
@@ -44,7 +44,7 @@ public class TestDataProvider {
                 quote.setBid(randomValue());
                 quotesRepository.save(quote);
             });
-        }
+        //}
     }
 
     private BigDecimal randomValue() {
