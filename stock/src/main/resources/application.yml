@@ -58,7 +58,7 @@ hello:
     greeting:
       br: "Ola"
       en: "Hello"
-  controller:
+  controller: 
     path: /hello
 msg:
   hello: Hello world
