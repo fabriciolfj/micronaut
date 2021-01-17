@@ -56,13 +56,14 @@ public class TestContainerSetup {
 
     @Test
     void producing10RecordsWorks() {
-        final ExternalQuoteProduce producer = context.getBean(ExternalQuoteProduce.class);
-        final ThreadLocalRandom random = ThreadLocalRandom.current();
-        IntStream.range(0, 10).forEach(count -> {
-            producer.send("TEST-" + count, new ExternalQuote("TEST-" + count,
-                    randomValue(random),
-                    randomValue(random)));
-        });
+        final var producer = context.getBean(ExternalQuoteProduce.class);
+        IntStream.range(0, 10)
+                .forEach(count -> {
+                    final ExternalQuote quote = new ExternalQuote("SYMBOL" + count,
+                            randomValue(ThreadLocalRandom.current()),
+                            randomValue(ThreadLocalRandom.current()));
+                    producer.send("SYMBOL" + count, quote);
+                });
 
         final var observer = context.getBean(ExternalQuoteObserver.class);
         Awaitility.await().untilAsserted(() -> {
